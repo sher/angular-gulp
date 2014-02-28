@@ -5,7 +5,7 @@ AngularJS app basic structure with Gulp build script
 
 
 1. clone the repo
-2. cd into clonde folder
+2. cd into cloned folder
 3. ```npm install -g gulp```
 4. ```npm install -g karma```
 5. ```npm install```
