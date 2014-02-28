@@ -16,6 +16,7 @@ Now you can start gulp using one of these
 - ```gulp --env=development```
 - ```gulp``` env defaults to development
 - ```gulp --env=staging```
+- browse to ```http://localhost:4000```
 
 You can build using 'build' task
 
