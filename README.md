@@ -24,4 +24,4 @@ You can build using 'build' task
 
 Tests
 
-```karma start```
+- ```karma start```
