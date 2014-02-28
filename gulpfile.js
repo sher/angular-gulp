@@ -69,7 +69,7 @@ gulp.task('scripts', function () {
 
 gulp.task('sass', function () {
   return gulp.src(paths.sass.main)
-    .pipe(sass())
+    .pipe(sass({errLogToConsole: true})
     .pipe(gulpif(!config.debug, minifycss()))
     .pipe(gulp.dest('build/css'))
     .pipe(gulpif(config.tlr, livereload(config.tlr)));
