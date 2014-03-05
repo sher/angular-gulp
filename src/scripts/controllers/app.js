@@ -3,7 +3,7 @@ angular.module('MyApp.controllers')
     function($rootScope, env) {
       'use strict';
 
-      $rootScope.message = "AngularJS Gulp starter kit";
+      $rootScope.message = "AngularJS Gulp starter kit v2.0";
       $rootScope.apiUrl = env.apiUrl;
     }
   ]);
