@@ -1,16 +1,16 @@
-var path        = require('path');
-var gulp        = require('gulp');
-var gutil       = require('gulp-util');
-var changed     = require('gulp-changed');
-var gulpif      = require('gulp-if');
-var uglify      = require('gulp-uglify');
-var jshint      = require('gulp-jshint');
-var stylish     = require('jshint-stylish');
-var concat      = require('gulp-concat');
-var sass        = require('gulp-sass');
-var minifycss   = require('gulp-minify-css');
-var jade        = require('gulp-jade');
-var clean       = require('gulp-clean');
+var path      = require('path');
+var gulp      = require('gulp');
+var gutil     = require('gulp-util');
+var changed   = require('gulp-changed');
+var gulpif    = require('gulp-if');
+var uglify    = require('gulp-uglify');
+var jshint    = require('gulp-jshint');
+var stylish   = require('jshint-stylish');
+var concat    = require('gulp-concat');
+var sass      = require('gulp-sass');
+var minifycss = require('gulp-minify-css');
+var jade      = require('gulp-jade');
+var clean     = require('gulp-clean');
 
 var config = {
   envs:     ['development', 'staging', 'production'],
@@ -69,7 +69,7 @@ gulp.task('scripts', function () {
 
 gulp.task('sass', function () {
   return gulp.src(paths.sass.main)
-    .pipe(sass({errLogToConsole: true}))
+    .pipe(sass({ errLogToConsole: true }))
     .pipe(gulpif(!config.debug, minifycss()))
     .pipe(gulp.dest('build/css'))
     .pipe(gulpif(config.tlr, livereload(config.tlr)));
@@ -140,11 +140,11 @@ function scriptPaths() {
   // main app file, must be loaded first
   files.push('src/scripts/app.js');
   // env specific config file
-  files.push('src/scripts/config/'+config.env+'.js');
+  files.push('src/scripts/config/' + config.env + '.js');
   // exclude other enviroment config files
   for (var i = 0; i < config.envs.length; i++) {
     if (config.envs[i] !== config.env) {
-      files.push('!src/scripts/config/'+config.envs[i]+'.js');
+      files.push('!src/scripts/config/' + config.envs[i] + '.js');
     }
   }
   files.push('src/scripts/**/*.js');
@@ -152,8 +152,8 @@ function scriptPaths() {
 }
 
 function startExpress() {
-  var express = require('express');
-  var app     = express();
+  var express = require('express'),
+      app     = express();
   app.use(require('connect-livereload')({ port: 35729 }));
   app.use(express.static(path.join(__dirname, 'build')));
   app.listen(4000);
